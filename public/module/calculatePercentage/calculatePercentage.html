@@ -1,0 +1,61 @@
+<div class="alert-box">
+    <uib-alert ng-repeat="alert in calculatePercentageCtrl.alerts" type="{{alert.type}}"
+               close="calculatePercentageCtrl.closeAlert($index)" dismiss-on-timeout="1000">
+        {{alert.msg}}
+    </uib-alert>
+</div>
+<h3 class="center-content" ng-bind="calculatePercentageCtrl.tips" style="color: whitesmoke"></h3>
+<div class="container">
+    <div class="center-content">
+        <a ngf-select="calculatePercentageCtrl.processFile1($file)" class="button blue">
+            上传获取文件
+        </a>
+        <a ngf-select="calculatePercentageCtrl.processResultFile($file)" class="button blue">
+            上传结果文件
+        </a>
+        <a class="button blue" ng-click="calculatePercentageCtrl.getResult()">获得结果</a>
+        <a class="button blue" ng-click="calculatePercentageCtrl.save()">保存</a>
+    </div>
+</div>
+<div class="container center-content" style="width:100%; margin-top: 20px; height: 80%;" id="table-area">
+    <div class="col-md-4">
+        <div class="center-content table-container">
+            <hot-table
+                    settings="calculatePercentageCtrl.settings"
+                    row-headers="calculatePercentageCtrl.rowHeaders"
+                    col-headers="calculatePercentageCtrl.colHeaders"
+                    datarows="calculatePercentageCtrl.tableItems1.data"
+                    height="300"
+                    width="700"
+                    on-after-selection="calculatePercentageCtrl.onAfterSelection"
+                    on-after-change="calculatePercentageCtrl.afterChange"
+                    id="table1">
+            </hot-table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="center-content table-container">
+            <hot-table
+                    settings="calculatePercentageCtrl.settings"
+                    row-headers="calculatePercentageCtrl.rowHeaders"
+                    col-headers="calculatePercentageCtrl.colHeaders"
+                    datarows="calculatePercentageCtrl.tableItems2.data"
+                    on-after-selection="calculatePercentageCtrl.onAfterSelection"
+                    on-after-change="calculatePercentageCtrl.afterChange"
+                    id='table2'>
+            </hot-table>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="center-content table-container">
+            <hot-table
+                    settings="calculatePercentageCtrl.settings"
+                    row-headers="calculatePercentageCtrl.rowHeaders"
+                    col-headers="calculatePercentageCtrl.colHeaders"
+                    datarows="calculatePercentageCtrl.result.data"
+                    on-after-selection="calculatePercentageCtrl.onAfterSelection"
+                    on-after-change="calculatePercentageCtrl.afterChange">
+            </hot-table>
+        </div>
+    </div>
+</div>

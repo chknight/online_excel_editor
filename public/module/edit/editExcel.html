@@ -1,0 +1,21 @@
+<div class="left-content">
+    <a ngf-select="editExcelCtrl.processFile($file)" class="button blue">
+        上传
+    </a>
+    <a class="button blue" ng-click="editExcelCtrl.save()">保存</a>
+</div>
+<div class="row full-size" fill-rest-height id="table-area">
+    <div class="col-md-12">
+        <div class="center-content">
+            <hot-table
+                    settings="editExcelCtrl.settings"
+                    datarows="editExcelCtrl.items.data"
+                    height="300"
+                    width="700"
+                    on-after-selection="editExcelCtrl.onAfterSelection"
+                    on-after-change="editExcelCtrl.afterChange"
+                    id="table1">
+            </hot-table>
+        </div>
+    </div>
+</div>

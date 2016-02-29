@@ -1,0 +1,51 @@
+<div class="alert-box">
+    <uib-alert ng-repeat="alert in searchAndCopyCtrl.alerts" type="{{alert.type}}"
+               close="searchAndCopyCtrl.closeAlert($index, searchAndCopyCtrl.alerts)" dismiss-on-timeout="1000">
+        {{alert.msg}}
+    </uib-alert>
+</div>
+<h3 class="center-content" style="color:whitesmoke"><span ng-bind="searchAndCopyCtrl.tips"></span></h3>
+<div class="container">
+    <div class="center-content">
+        <a ngf-select="searchAndCopyCtrl.processResourceFile($file)" class="button blue">
+            上传获取文件
+        </a>
+        <a ngf-select="searchAndCopyCtrl.processTargetFile($file)" class="button blue">
+            上传结果文件
+        </a>
+        <a class="button blue" ng-click="searchAndCopyCtrl.getResourceKey()">获得表1关键字</a>
+        <a class="button blue" ng-click="searchAndCopyCtrl.getKey()">获得表2关键字</a>
+        <a class="button blue" ng-click="searchAndCopyCtrl.getResult()">选择需要拷贝的列</a>
+        <a class="button blue" ng-click="searchAndCopyCtrl.save()">保存</a>
+    </div>
+</div>
+<div class="container center-content" style="width:100%; margin-top: 20px; height: 80%" id='table-area'>
+    <div class="col-md-6">
+        <div class="center-content table-container">
+            <hot-table
+                    settings="searchAndCopyCtrl.settings"
+                    row-headers="searchAndCopyCtrl.rowHeaders"
+                    col-headers="searchAndCopyCtrl.colHeaders"
+                    datarows="searchAndCopyCtrl.resourceTable.data"
+                    height="300"
+                    width="700"
+                    on-after-change="searchAndCopyCtrl.afterChange"
+                    on-after-selection="searchAndCopyCtrl.onAfterResourceSelection"
+                    id="table1">
+            </hot-table>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="center-content table-container">
+            <hot-table
+                    settings="searchAndCopyCtrl.settings"
+                    row-headers="searchAndCopyCtrl.rowHeaders"
+                    col-headers="searchAndCopyCtrl.colHeaders"
+                    datarows="searchAndCopyCtrl.targetTable.data"
+                    on-after-selection="searchAndCopyCtrl.onAfterSelection"
+                    on-after-change="searchAndCopyCtrl.afterChange"
+                    id='table2'>
+            </hot-table>
+        </div>
+    </div>
+</div>

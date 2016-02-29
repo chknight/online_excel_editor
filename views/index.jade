@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', media="screen" href='/node_modules/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/component/handsontable/dist/handsontable.full.min.css')
+
+  body(ng-app="Birthday")
+    div.background-container
+      .background
+      img(src="/images/background.jpg" class="background-img")
+      img(src="/images/background.jpg" class="background-copy")
+    nav(class="navbar navbar-inverse" , style="z-index:10;" custom-header)
+      div.navbar-header
+        a(class="navbar-brand", ui-sref="index") excel工坊
+      div(class="collapse navbar-collapse", id="navbar")
+        ul(class="nav navbar-nav")
+          li
+            a(ui-sref="searchAndCopy") 查找与复制
+          li
+            a(ui-sref="calculatePercentage") 百分率计算
+          li
+            a(ui-sref="editExcel") 编辑
+          li
+            a(ui-sref="moreFunction") 更多功能
+    div(id="content-area" ui-view)
+
+    script(src="/node_modules/angular/angular.min.js")
+    script(src="/node_modules/angular-resource/angular-resource.min.js")
+    //angular的注册文件
+    script(src="/javascripts/app.js")
+    script(src="/javascripts/app_config.js")
+    //共用的服务
+    script(src="/javascripts/service/tableOperationSerivce.js")
+    script(src="/javascripts/service/constant.js")
+    script(src="/javascripts/service/tool.js")
+
+    //共用的directive文件
+    script(src="/javascripts/directive/fill_rest_height.js")
+    script(src="/javascripts/directive/custom_header.js")
+
+    script(src="/module/main/indexController.js")
+    script(src="/module/main/indexService.js")
+    script(src="/module/calculatePercentage/calculatePercentageCtrl.js")
+    script(src="/module/calculatePercentage/calculatePercentageService.js")
+    script(src="/module/edit/editExcelCtrl.js")
+    script(src="/module/edit/editExcelService.js")
+    script(src="/module/searchAndCopyModule/searchAndCopyCtrl.js")
+    script(src="/module/searchAndCopyModule/searchAndCopyService.js")
+
+    script(src="/node_modules/jquery/dist/jquery.min.js")
+    script(src="/node_modules/angular-ui-router/release/angular-ui-router.min.js")
+    script(src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js")
+    script(src="/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js")
+    script(src="/component/handsontable/dist/moment/moment.js")
+    script(src="/component/handsontable/dist/pikaday/pikaday.js")
+    script(src="/component/handsontable/dist/zeroclipboard/ZeroClipboard.js")
+    script(src="/component/handsontable/dist/handsontable.full.min.js")
+    script(src="/component/ngHandsontable/dist/ngHandsontable.min.js")
+    script(src="/component/xlsx/dist/xlsx.full.min.js")
+    script(src="/node_modules/ng-file-upload/dist/ng-file-upload-all.min.js")
+    script(src="/node_modules/require.js/require.min.js")
+    script(src="/node_modules/filesaver.js/FileSaver.min.js")
